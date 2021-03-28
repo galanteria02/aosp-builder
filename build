@@ -34,6 +34,7 @@ tg(){
 	your_telegram_id=$1 # No need to touch 
 	msg=$2 # No need to touch
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}"
+        echo $2
 }
 
 id=770108549 # Your telegram id
