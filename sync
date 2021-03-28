@@ -6,8 +6,13 @@ cd /tmp/rom
 # Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
 repo init -q --no-repo-verify --depth=1 -u git://github.com/AospExtended/manifest.git -b 11.x -g default,-device,-mips,-darwin,-notdefault
 
-# Clone local manifest! So that no need to manually git clone repos or change hals, you can use normal git clone or rm and re clone, they will cost little more time, and you may get timeout! Let's make it quit and depth=1 too.
-git clone https://github.com/Apon77Lab/android_.repo_local_manifests.git --depth 1 -b aex .repo/local_manifests
-
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 30 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 8
+
+git clone https://github.com/galanteria01/platform_device_xiaomi_violet.git device/xiaomi/violet -b 11.x
+git clone https://github.com/PotatoDevices/vendor_xiaomi_violet.git vendor/xiaomi/violet --depth 1
+git clone https://github.com/PotatoDevices/kernel_xiaomi_violet.git kernel/xiaomi/violet --depth 1
+git clone https://gitlab.com/ZVNexus/android_vendor_google_pixel.git vendor/google/pixel --depth 1
+git clone https://gitlab.com/ZVNexus/android_vendor_google_gms.git vendor/google/gms --depth 1
+rm -rf packages/resources/devicesettings
+git clone https://github.com/LineageOS/android_packages_resources_devicesettings.git packages/resources/devicesettings 
