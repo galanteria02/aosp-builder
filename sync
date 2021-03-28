@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git clone https://github.com/akhilnarang/scripts.git /tmp/scripts
+bash /tmp/scripts/setup/android_build_env.sh
+
 mkdir -p /tmp/rom # Where to sync source
 cd /tmp/rom
 
